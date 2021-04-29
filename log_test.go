@@ -2,11 +2,21 @@
 package log
 
 import (
+	"encoding/json"
 	"errors"
 	"os"
 	"testing"
 	"time"
 )
+
+type testMessage struct {
+	Id   string `json:"id"`
+	Name string `json:"name"`
+}
+
+func (t *testMessage) MarshalJSON() ([]byte, error) {
+	return json.Marshal(t)
+}
 
 func TestInfo(t *testing.T) {
 	Info(
