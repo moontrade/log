@@ -15,7 +15,7 @@ type testMessage struct {
 }
 
 func (t *testMessage) MarshalJSON() ([]byte, error) {
-	return json.Marshal(t)
+	return json.Marshal(*t)
 }
 
 func TestInfo(t *testing.T) {
